@@ -26,7 +26,8 @@ module.exports = function (grunt) {
     jshint: {
       main: {
         options: {
-            jshintrc: '.jshintrc'
+            jshintrc: '.jshintrc',
+            reporterOutput: ""
         },
         src: 'angular-prompt.js'
       }
