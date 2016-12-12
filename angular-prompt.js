@@ -9,6 +9,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
             message: '',
             input: false,
             label: '',
+            reqValText: '',
             value: '',
             values: false,
             buttons: [

@@ -9,6 +9,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
             message: '',
             input: false,
             label: '',
+            reqValText: '',
             value: '',
             values: false,
             buttons: [
@@ -118,9 +119,9 @@ angular.module('cgPrompt').run(['$templateCache', function($templateCache) {
     "        </p>\n" +
     "\n" +
     "        <form id=\"cgPromptForm\" name=\"form.cgPromptForm\" ng-if=\"options.input\" ng-submit=\"submit()\">\n" +
-    "            <div class=\"form-group\" ng-class=\"{'has-error':cgPromptForm.$invalid && changed}\">\n" +
+    "            <div class=\"form-group\" ng-class=\"{'has-error':form.cgPromptForm.$invalid && changed}\">\n" +
     "                <label for=\"cgPromptInput\">{{options.label}}</label>\n" +
-    "                <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\"  placeholder=\"{{options.label}}\" ng-model=\"input.name\" required ng-change=\"changed=true\" ng-if=\"!options.values || options.values.length === 0\"/ autofocus=\"autofocus\">\n" +
+    "                <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" required ng-change=\"changed=true\" ng-if=\"!options.values || options.values.length === 0\"/ autofocus=\"autofocus\">\n" +
     "                <div class=\"input-group\" ng-if=\"options.values\">\n" +
     "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" required ng-change=\"changed=true\" autofocus=\"autofocus\"/>\n" +
     "\n" +
@@ -132,6 +133,7 @@ angular.module('cgPrompt').run(['$templateCache', function($templateCache) {
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
+    "            <span ng-if=\"form.cgPromptForm.$invalid && options.reqValText\" class=\"help-block gbsp-invalid-help\">{{options.reqValText}}</span>\n" +
     "         </form>\n" +
     "\n" +
     "    </div>\n" +
